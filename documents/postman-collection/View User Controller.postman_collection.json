@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "2fd0cd1a-536e-4c7e-baf1-43df45349a23",
+		"name": "View User Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43341778",
+		"_collection_link": "https://speeding-shadow-536133.postman.co/workspace/My-Workspace~259d8fa5-25bf-4dee-8f81-2e974e4ac0f4/collection/43341778-2fd0cd1a-536e-4c7e-baf1-43df45349a23?action=share&source=collection_link&creator=43341778"
+	},
+	"item": [
+		{
+			"name": "View Single User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer bqSuSAilHjl4GmHiV14yAK7s0GMDCktR6JO0ye1F85f45229",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/users/Sierra Schumm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"Sierra Schumm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer bqSuSAilHjl4GmHiV14yAK7s0GMDCktR6JO0ye1F85f45229",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "6dda9a64-3e81-4464-b8aa-1488961d517e",
+		"name": "Public PostController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43341778",
+		"_collection_link": "https://speeding-shadow-536133.postman.co/workspace/My-Workspace~259d8fa5-25bf-4dee-8f81-2e974e4ac0f4/collection/43341778-6dda9a64-3e81-4464-b8aa-1488961d517e?action=share&source=collection_link&creator=43341778"
+	},
+	"item": [
+		{
+			"name": "Blog Home",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Post ID</th>\r",
+							"        <th>Title</th>\r",
+							"        <th>Content</th>\r",
+							"        <th>Author</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>Comments</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.Feed}}\r",
+							"        <tr id=row_{{@key}}>\r",
+							"            <td>{{post_id}}</td>\r",
+							"            <td>{{title}}</td>\r",
+							"            <td>{{content}}</td>\r",
+							"            <td>{{author}}</td>\r",
+							"            <td>{{created_at}}</td>\r",
+							"            <td>\r",
+							"                <table>\r",
+							"                    <tr>\r",
+							"                        <th>Comment ID</th>\r",
+							"                        <th>Commentor</th>\r",
+							"                        <th>Comment</th>\r",
+							"                    </tr>\r",
+							"                    {{#each comments}}\r",
+							"                        <tr>\r",
+							"                            <td>{{comment_id}}</td>\r",
+							"                            <td>{{commentor}}</td>\r",
+							"                            <td>{{comment}}</td>\r",
+							"                        </tr>\r",
+							"                    {{/each}}\r",
+							"                </table>\r",
+							"            </td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/posts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Blog by username",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/posts/username/kamote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"username",
+						"kamote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show blog by keyword",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/posts/title/d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"title",
+						"d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show blog by post id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/posts/111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recent",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/posts/recent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"recent"
+					],
+					"query": [
+						{
+							"key": "Acc",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
